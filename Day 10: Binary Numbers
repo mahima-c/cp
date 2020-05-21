@@ -1,0 +1,42 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+
+
+int main()
+{
+    int n;
+    cin >> n;
+    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+    stack <int> s; 
+    while(n>0){
+        int e=n%2;
+        s.push(e);
+        n=n/2;
+    }
+    int rest=0;
+    int tem=0;
+    int l=s.size();
+    while(!s.empty()){
+        int el=s.top();
+        if(el== 1){
+            s.pop();
+            tem++;
+        }
+        if(rest<tem){
+            rest=tem;
+        }
+        if(el==0){
+            tem=0;
+            s.pop();
+        }
+
+    }
+    int ans=0;
+    // while(rest--){
+    //     ans=ans+pow(2, rest);
+    // }
+cout<<rest;
+    return 0;
+}
